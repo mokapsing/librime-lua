@@ -263,6 +263,10 @@ namespace UserDbReg{
     return {};
   }
 
+  string file_name(const T& t) {
+    return t.file_path().u8string();
+  }
+
   bool Open(T &t) { return t.Open(); }
   bool Close(T &t) { return t.Close(); }
   bool OpenReadOnly(T &t) { return t.OpenReadOnly(); }
@@ -300,7 +304,7 @@ namespace UserDbReg{
     {"read_only",WRAPMEM(T, readonly)},
     {"disabled",WRAPMEM(T, disabled)},
     {"name", WRAPMEM(T, name)},
-    {"file_name", WRAPMEM(T, file_name)},
+    {"file_name", WRAP(file_name)},
     { NULL, NULL },
   };
 
